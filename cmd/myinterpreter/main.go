@@ -32,18 +32,14 @@ func main() {
 		os.Exit(1)
 	}
 
-	if len(fileContents) > 0 {
-		panic("Scanner not implemented")
-	} else {
-		for _, char := range string(fileContents) {
-			switch char {
-			case token.LEFT_PAREN:
-				fmt.Println("LEFT_PAREN ( null")
-			case token.RIGHT_PAREN:
-				fmt.Println("RIGHT_PAREN ) null")
-			}
+	for _, char := range string(fileContents) {
+		switch char {
+		case token.LEFT_PAREN:
+			fmt.Println("LEFT_PAREN ( null")
+		case token.RIGHT_PAREN:
+			fmt.Println("RIGHT_PAREN ) null")
 		}
-		fmt.Println("EOF null")
-
 	}
+	fmt.Println("EOF null")
+
 }
