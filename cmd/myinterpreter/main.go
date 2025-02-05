@@ -2,10 +2,9 @@ package main
 
 import (
 	"fmt"
-	"go/token"
 	"os"
 
-	"github.com/codecrafters-io/interpreter-starter-go/token"
+	"github.com/codecrafters-io/interpreter-starter-go/cmd/token"
 )
 
 func main() {
@@ -36,15 +35,15 @@ func main() {
 	if len(fileContents) > 0 {
 		panic("Scanner not implemented")
 	} else {
-    for _, char := string(fileContents){
-      switch char {
-        case token.LEFT_PAREN :
-          ftm.Println("LEFT_PAREN ( null")
-        case token.RIGHT_PAREN :
-          ftm.Println("RIGHT_PAREN ) null")
-      }
-    }
-    ftm.Println("EOF null")
+		for _, char := range string(fileContents) {
+			switch char {
+			case token.LEFT_PAREN:
+				fmt.Println("LEFT_PAREN ( null")
+			case token.RIGHT_PAREN:
+				fmt.Println("RIGHT_PAREN ) null")
+			}
+		}
+		fmt.Println("EOF null")
 
 	}
 }
