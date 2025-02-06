@@ -23,7 +23,7 @@ func tokenError(char rune, line int) {
 	fmt.Fprintf(os.Stderr, "[line %d] Error: Unexpected character: %c\n", line, char)
 
 	// Print EOF message before exiting
-	fmt.Println("EOF null")
+	fmt.Println("EOF  null")
 
 	// Exit with code 65 after printing the error
 	os.Exit(65)
@@ -38,9 +38,6 @@ func HandleToken(fileContents []byte) {
 		switch char {
 		case '\n':
 			line++
-		case ' ':
-			// Ignore spaces, do nothing
-			continue
 		case LEFT_PAREN:
 			tokens = append(tokens, "LEFT_PAREN ( null")
 		case RIGHT_PAREN:
@@ -72,5 +69,5 @@ func HandleToken(fileContents []byte) {
 	}
 
 	// Print EOF message
-	fmt.Println("EOF null")
+	fmt.Println("EOF  null")
 }
