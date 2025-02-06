@@ -32,30 +32,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	for _, char := range string(fileContents) {
-		switch char {
-		case token.LEFT_PAREN:
-			fmt.Println("LEFT_PAREN ( null")
-		case token.RIGHT_PAREN:
-			fmt.Println("RIGHT_PAREN ) null")
-		case token.LEFT_BRACE:
-			fmt.Println("LEFT_BRACE { null")
-		case token.RIGHT_BRACE:
-			fmt.Println("RIGHT_BRACE } null")
-		case token.COMMA:
-			fmt.Println("COMMA , null")
-		case token.DOT:
-			fmt.Println("DOT . null")
-		case token.MINUS:
-			fmt.Println("MINUS - null")
-		case token.PLUS:
-			fmt.Println("PLUS + null")
-		case token.STAR:
-			fmt.Println("STAR * null")
-		case token.SEMICOLON:
-			fmt.Println("SEMICOLON ; null")
-		}
-	}
-	fmt.Println("EOF  null")
+	token.HandleToken(fileContents)
 
 }
