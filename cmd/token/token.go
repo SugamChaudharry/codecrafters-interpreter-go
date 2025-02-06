@@ -24,33 +24,43 @@ func tokenError(char rune, line int) {
 
 func HandleToken(fileContents []byte) {
 	line := 1
+	var tokens []string
+
+	// Loop over each character in the file contents
 	for _, char := range string(fileContents) {
 		switch char {
 		case '\n':
 			line++
 		case LEFT_PAREN:
-			fmt.Println("LEFT_PAREN ( null")
+			tokens = append(tokens, "LEFT_PAREN ( null")
 		case RIGHT_PAREN:
-			fmt.Println("RIGHT_PAREN ) null")
+			tokens = append(tokens, "RIGHT_PAREN ) null")
 		case LEFT_BRACE:
-			fmt.Println("LEFT_BRACE { null")
+			tokens = append(tokens, "LEFT_BRACE { null")
 		case RIGHT_BRACE:
-			fmt.Println("RIGHT_BRACE } null")
+			tokens = append(tokens, "RIGHT_BRACE } null")
 		case COMMA:
-			fmt.Println("COMMA , null")
+			tokens = append(tokens, "COMMA , null")
 		case DOT:
-			fmt.Println("DOT . null")
+			tokens = append(tokens, "DOT . null")
 		case MINUS:
-			fmt.Println("MINUS - null")
+			tokens = append(tokens, "MINUS - null")
 		case PLUS:
-			fmt.Println("PLUS + null")
+			tokens = append(tokens, "PLUS + null")
 		case STAR:
-			fmt.Println("STAR * null")
+			tokens = append(tokens, "STAR * null")
 		case SEMICOLON:
-			fmt.Println("SEMICOLON ; null")
+			tokens = append(tokens, "SEMICOLON ; null")
 		default:
 			tokenError(char, line)
 		}
 	}
-	fmt.Println("EOF  null")
+
+	// Print tokens array one by one
+	for _, token := range tokens {
+		fmt.Println(token)
+	}
+
+	// Print EOF message
+	fmt.Println("EOF")
 }
