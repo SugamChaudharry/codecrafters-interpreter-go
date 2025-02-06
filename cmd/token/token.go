@@ -21,16 +21,11 @@ const (
 func tokenError(char rune, line int) {
 	// Print error message to stderr
 	fmt.Fprintf(os.Stderr, "[line %d] Error: Unexpected character: %c\n", line, char)
-
-	// Print EOF message before exiting
-	fmt.Println("EOF  null")
-
-	// Exit with code 65 after printing the error
-	os.Exit(65)
 }
 
 func HandleToken(fileContents []byte) {
 	line := 1
+	error := false
 	var tokens []string
 
 	// Loop over each character in the file contents
@@ -59,6 +54,7 @@ func HandleToken(fileContents []byte) {
 		case SEMICOLON:
 			tokens = append(tokens, "SEMICOLON ; null")
 		default:
+			error = true
 			tokenError(char, line) // Error handling now exits
 		}
 	}
@@ -70,4 +66,8 @@ func HandleToken(fileContents []byte) {
 
 	// Print EOF message
 	fmt.Println("EOF  null")
+
+	if error {
+		os.Exit(65)
+	}
 }
