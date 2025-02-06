@@ -2,6 +2,7 @@ package token
 
 import (
 	"fmt"
+	"os"
 )
 
 const (
@@ -19,7 +20,7 @@ const (
 
 func tokenError(char rune, line int) {
 	// [line N] Error: Unexpected character: <character>
-	fmt.Printf("[line %d] Error: Unexpected character: %c\n", line, char)
+	fmt.Fprintf(os.Stderr, "[line %d] Error: Unexpected character: %c\n", line, char)
 }
 
 func HandleToken(fileContents []byte) {
