@@ -35,6 +35,8 @@ func HandleToken(fileContents []byte) {
 		switch char {
 		case '\n':
 			line++
+		case ' ':
+			tokens = append(tokens, "EOF null")
 		case LEFT_PAREN:
 			tokens = append(tokens, "LEFT_PAREN ( null")
 		case RIGHT_PAREN:
@@ -66,5 +68,5 @@ func HandleToken(fileContents []byte) {
 	}
 
 	// Print EOF message
-	fmt.Println("EOF")
+	fmt.Println("EOF null")
 }
