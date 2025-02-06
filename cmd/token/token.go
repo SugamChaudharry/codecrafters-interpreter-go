@@ -21,6 +21,9 @@ const (
 func tokenError(char rune, line int) {
 	// [line N] Error: Unexpected character: <character>
 	fmt.Fprintf(os.Stderr, "[line %d] Error: Unexpected character: %c\n", line, char)
+
+	// Exit with code 65 after printing the error
+	os.Exit(65)
 }
 
 func HandleToken(fileContents []byte) {
